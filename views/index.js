@@ -5,6 +5,6 @@ import Logar from'./logar';
 import Registro from './register';
 import CadastroPj from './cadastroPj';
 import CadastroC from './cadastroC';
-import MainCliente from './mainCliente'
+import mainCliente from './mainCliente'
 
-export {Home, LoginC, LoginP, Logar, Registro, CadastroPj, CadastroC, MainCliente} 
+export {Home, LoginC, LoginP, Logar, Registro, CadastroPj, CadastroC, mainCliente} 
