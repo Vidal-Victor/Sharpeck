@@ -1,14 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useState } from 'react';
 import { Button, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, ScrollView, TouchableOpacity, Alert } from 'react-native';
-import { database } from './firebase';
+import firebase from './firebase'
 import { TextInputMask } from 'react-native-masked-text';
 import {css, ContainerH, PortifolioFormC, HeaderH, Footer, LogoImg, Title} from '../assets/css/Css';
 import logoPJ from '../assets/img/borsa.png';
 
 
 export default function CadastroPj(props) {
-
+  const database = firebase.firestore();
   console.log (props);
   const [display, setdisplay] = useState ('none');
   const [Comerciante, setComerciante] = useState([]);
@@ -32,12 +32,12 @@ export default function CadastroPj(props) {
 
   async function addComerciante(){
     await database.collection('Comerciante').add({
-      NomeFantasia,
-      Sigla,
-      CNPJ,
-      RazaoSocial,
-      Email,
-      Senha
+      NomeFantasia: NomeFantasia,
+      Sigla: Sigla,
+      CNPJ: CNPJ,
+      RazaoSocial: RazaoSocial,
+      Email: Email,
+      Senha: Senha,
     }).then(() => {
       Limpar()
     })
@@ -47,11 +47,11 @@ export default function CadastroPj(props) {
     database.collection('Comerciante').doc(id).delete();
   }
 
-  function CadastroFinalizado(){
+  function AlertCadastro(){
     Alert.alert('Cadastro Realizado', 'Deseja prosseguir para o Login ou cadastrar um novo usuário?',[
       {
         text:'Ir para Login',
-        onPress:() => props.navigation.navigate('Login')
+        onPress:() => props.navigation.navigate('LoginP')
         
       },
       {
@@ -61,9 +61,9 @@ export default function CadastroPj(props) {
       }
     ])
   }
-    function Combinacao(){
+    function CadastroFinalizado(){
       addComerciante();
-      CadastroFinalizado();
+      AlertCadastro();
     }
 
 
@@ -90,16 +90,16 @@ export default function CadastroPj(props) {
       
       
 
-        <TextInput style={styles.input} placeholder="NomeFantasia" value = {NomeFantasia} onChangeText={value => setNomeFantasia(value)} />
-        <TextInput style={styles.input} placeholder="Sigla" value = {Sigla} onChangeText={value => setSigla(value)}/>
-        <TextInputMask style={styles.input} type={'cnpj'} placeholder="CNPJ" value = {CNPJ} onChangeText={value => setCNPJ(value)} />
-        <TextInput style={styles.input} placeholder="Razão Social" value = {RazaoSocial} onChangeText={value => setRazaoSocial(value)} />
-        <TextInput style={styles.input} placeholder="Email" value = {Email} onChangeText={value => setEmail(value)}/>
-        <TextInput style={styles.input} placeholder="Senha" value = {Senha}  onChangeText={value => setSenha(value)} secureTextEntry = {true} />
+        <TextInput style={styles.input} placeholder="NomeFantasia" value = {NomeFantasia} onChangeText={NomeFantasia=> setNomeFantasia(NomeFantasia)} />
+        <TextInput style={styles.input} placeholder="Sigla" value = {Sigla} onChangeText={Sigla => setSigla(Sigla)}/>
+        <TextInputMask style={styles.input} type={'cnpj'} placeholder="CNPJ" value = {CNPJ} onChangeText={CNPJ => setCNPJ(CNPJ)}/>
+        <TextInput style={styles.input} placeholder="Razão Social" value = {RazaoSocial} onChangeText={RazaoSocial => setRazaoSocial(RazaoSocial)} />
+        <TextInput style={styles.input} placeholder="Email" value = {Email} onChangeText={Email => setEmail(Email)}/>
+        <TextInput style={styles.input} placeholder="Senha" value = {Senha}  onChangeText={Senha => setSenha(Senha)} secureTextEntry = {true} />
 
         
 
-        <TouchableOpacity style={styles.buttonContainer} onPress={Combinacao()}> 
+        <TouchableOpacity style={styles.buttonContainer} onPress={CadastroFinalizado}> 
         <View> 
           <Text style={styles.buttonText}> Resgistre sua empresa</Text> 
         </View> 

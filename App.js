@@ -3,7 +3,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { NavigationContainer, StackRouter } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { SeuRegistro, Home, LoginC, Logar, LoginP, CadastroC, CadastroPj, MainCliente } from './views';
+import { Registro, Home, LoginC, Logar, LoginP, CadastroC, CadastroPj, MainCliente } from './views';
 import {css} from './assets/css/Css';
 
 <View style={css.container}></View>
@@ -16,7 +16,7 @@ export default function App() {
 
   return (
   <NavigationContainer>
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName = "Home">
       <Stack.Screen 
         name = "Home" 
         component = {Home}
@@ -46,8 +46,8 @@ export default function App() {
        }}
        />
         <Stack.Screen
-        name = "SeuRegistro"
-        component = {SeuRegistro}
+        name = "Registro"
+        component = {Registro}
         options = {{
           headerShown: false,
         }}

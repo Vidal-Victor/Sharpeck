@@ -35,7 +35,7 @@ return(
 
                 <Text style={styles.labelText}> Caso não tenha uma conta: </Text>
 
-                <TouchableOpacity style={styles.buttonContainer}  onPress={() => props.navigation.navigate('SeuRegistro')}>
+                <TouchableOpacity style={styles.buttonContainer}  onPress={() => props.navigation.navigate('Registro')}>
                   <Text style={styles.buttonText}> Cadastre-se</Text>
                 </TouchableOpacity>
         

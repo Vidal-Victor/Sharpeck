@@ -6,13 +6,10 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import user from '../assets/img/UserIconC.jpg';
 
 
-export default function SeuRegistro(props) {
+export default function Registro(props) {
 
   console.log (props);
   return ( 
-    
-
-
     <KeyboardAvoidingView  behavior={Platform.OS == "ios" ? "padding" : "height"} style = {[css.container, css.shkbg]}>
     <ContainerH colors={['#837EBA','#6bd1aa']}>
       <HeaderH>
@@ -43,13 +40,6 @@ export default function SeuRegistro(props) {
 
         </PortifolioForm>    
       </Footer>
-
-
-
-
-
-
-
     </ContainerH>
     </KeyboardAvoidingView>
 

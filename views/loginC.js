@@ -3,22 +3,24 @@ import { KeyboardAvoidingView, StyleSheet, Text, TextInput, Image, View, Platfor
 import { Container, Header, Footer, PortifolioForm,LogoImg, TitleLogin, css } from '../assets/css/Css';
 import { AntDesign } from '@expo/vector-icons';
 import logoL from '../assets/img/LogoL.jpg';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import firebase from "./firebase"
+import "firebase/auth";
+import app from "./firebase"
 
 
-export default function LoginC (props)  {
-    console.log(props)
+export default function LoginC ({navigation})  {
+    
     const [display, setDisplay]=useState( 'none');
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     
 
     
-     function login({navigation}){
-        const auth = getAuth();
-        signInWithEmailAndPassword(auth, email, senha)
+     function login(){
+         
+        firebase.auth().signInWithEmailAndPassword(email, senha)
           .then((userCredential) => {
-            navigation.navigate('MainCliente')
+            navigation.navigate('Home')
             const user = userCredential.user;
             // ...
           })
@@ -51,15 +53,15 @@ return(
         </View>
 
             <View style= {Style.container_forgot}>
-            <TouchableOpacity onPress={login} > 
+            <TouchableOpacity> 
                 <View><Text style = {Style.forgotText}>Esqueceu sua senha ?</Text></View> 
             </TouchableOpacity>
             </View>
 
-        <TouchableOpacity style = {Style.loginbutton} onPress={login}>
+        <TouchableOpacity style = {Style.loginbutton} onPress={()=>{login()}}>
             <View ><Text style = {Style.loginbunttonText}>Entrar</Text></View>
         </TouchableOpacity>
-        {SetAuthenticated ? <Text>Logado com sucesso</Text>:''}
+        
     </PortifolioForm>    
    </Footer>
    </Container>

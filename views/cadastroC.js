@@ -1,17 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, TouchableOpacity, Alert } from 'react-native';
-import { app } from './firebase';
 import { TextInputMask } from 'react-native-masked-text';
 import {css, ContainerH, PortifolioFormC, HeaderH, Footer, LogoImg, Title} from '../assets/css/Css';
 import logoC from '../assets/img/UserIcon.jpg';
+import firebase from './firebase'
+import "firebase/auth"
 
 export default function CadastroC(props) {
-  var database = firebase.database();
+  const database = firebase.firestore();
 
   console.log (props);
   const [display, setdisplay] = useState ('none');
-
   const [Cliente, setCliente] = useState([]);
   const [Nome, setNome] = useState('');
   const [Sobrenome, setSobrenome] = useState('');
@@ -22,7 +21,7 @@ export default function CadastroC(props) {
   const [Senha, setSenha] = useState('');
 
   useEffect(()=>{
-    app.collection('Cliente').onSnapshot((query)=>{
+      database.collection('Cliente').onSnapshot((query)=>{
       const list = [];
       query.forEach((doc)=>{
         list.push({...doc.data(), id: doc.id});
@@ -40,11 +39,11 @@ export default function CadastroC(props) {
     setEmail('');
     setSenha('');
  }
-  async function addCliente(){
-    database.collection('Cliente').add({
+   async function addCliente(){
+     await database.collection('Cliente').add({
+      CPF,
       Nome,
       Sobrenome,
-      CPF,
       Endereco,
       Telefone,
       Email,
@@ -53,24 +52,28 @@ export default function CadastroC(props) {
       Limpar()
     })
   }
-
-  // function writeUserData(userId, name, email) {
-  //   firebase.database().ref('users').set({
-  //     username: "Rogerio",
-  //     email: 15,
-      
-  //   });
+  // function UserFb(){
+  // fi.auth().createUserWithEmailAndPassword(Email, Senha)
+  // .then((userCredential) => {
+  //   // Signed in
+  //   var user = userCredential.user;
+  //   // ...
+  // })
+  // .catch((error) => {
+  //   var errorCode = error.code;
+  //   var errorMessage = error.message;
+  //   // ..
+  // });
   // }
-
   function deletar(id){
     database.collection('Cliente').doc(id).delete();
   }
 
-  function CadastroFinalizado(){
+  function AlertCadastro(){
     Alert.alert('Cadastro Realizado', 'Deseja prosseguir para o Login ou cadastrar um novo usuário?',[
       {
         text:'Ir para Login',
-        onPress:() => props.navigation.navigate('Login')
+        onPress:() => props.navigation.navigate('LoginC')
         
       },
       {
@@ -80,9 +83,9 @@ export default function CadastroC(props) {
       }
     ])
   }
-    function Combinacao(){
+    function CadastroFinalizado(){
       addCliente();
-      CadastroFinalizado();
+      AlertCadastro();
     }
   return ( 
     
@@ -102,19 +105,19 @@ export default function CadastroC(props) {
     </View>
     
       
-      <TextInput style={styles.input} placeholder="Nome" value = {Nome} onChangeText={ value => setNome(value)}/>
+      <TextInput style={styles.input} placeholder="Nome" value = {Nome} onChangeText={ Nome => setNome(Nome)}/>
       <TextInput style={styles.input} placeholder="Sobrenome" value = {Sobrenome} 
-      onChangeText={ value => setSobrenome(value)}/>
+      onChangeText={ Sobrenome => setSobrenome(Sobrenome)}/>
       <TextInputMask style={styles.input} type={'cpf'} 
-      placeholder="CPF" value = {CPF} keyboardType="numeric" onChangeText={ value => setCPF (value)}/> 
-      <TextInput style={styles.input} placeholder="Endereco" value = {Endereco} onChangeText={value => setEndereco(value)}/>
+      placeholder="CPF" value = {CPF} keyboardType="numeric" onChangeText={ CPF => setCPF (CPF)}/> 
+      <TextInput style={styles.input} placeholder="Endereco" value = {Endereco} onChangeText={Endereco => setEndereco(Endereco)}/>
       <TextInputMask style={styles.input} type={'cel-phone'}
-      options={{maskType:'BRL', withDDD: true, DDDmask: '(00) ' }} placeholder="Telefone" value = {Telefone} onChangeText={value => setTelefone(value)}/>
-      <TextInput style={styles.input} placeholder="Email" value = {Email} onChangeText={value => setEmail(value)}/>
-      <TextInput style={styles.input} placeholder="Senha" value = {Senha} onChangeText={value => setSenha(value)} secureTextEntry = {true}/>
+      options={{maskType:'BRL', withDDD: true, DDDmask: '(00) ' }} placeholder="Telefone" value = {Telefone} onChangeText={Telefone => setTelefone(Telefone)}/>
+      <TextInput style={styles.input} placeholder="Email" value = {Email} onChangeText={Email => setEmail(Email)}/>
+      <TextInput style={styles.input} placeholder="Senha" value = {Senha} onChangeText={Senha => setSenha(Senha)} secureTextEntry = {true}/>
  
 
-    <TouchableOpacity style={styles.buttonContainer} onPress={Combinacao}> 
+    <TouchableOpacity style={styles.buttonContainer} onPress={CadastroFinalizado}> 
         <View> 
           <Text style={styles.buttonText}> Resgistre sua Conta</Text> 
         </View> 
