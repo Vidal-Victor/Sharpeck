@@ -1,3 +1,4 @@
+import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useState } from 'react';
 import { ScrollView, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, TouchableOpacity, Alert } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
@@ -90,6 +91,7 @@ export default function CadastroC(props) {
   return ( 
     
   <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style = {[css.container, css.shkbg]}>
+   <StatusBar style='light' backgroundColor="#000" translucent ={true} />
   <ContainerH colors={['#6bd1aa','#837EBA']}>
     <HeaderH>
     

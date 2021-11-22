@@ -1,6 +1,7 @@
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { ContainerH, HeaderH, Footer, LogoImg, Title, ContentButton, TextButton, PortifolioFormH, ButtonH, css } from '../assets/css/Css';
-import { StyleSheet,KeyboardAvoidingView, Text, View,Button, SafeAreaView } from 'react-native';
+import { ContainerH, HeaderH, Footer, LogoImg, Title, css } from '../assets/css/Css';
+import { StyleSheet,KeyboardAvoidingView, Text, View } from 'react-native';
 import logo from '../assets/img/LogoH.png';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -10,7 +11,7 @@ export default function Home (props)
 return(
 
 <KeyboardAvoidingView  behavior={Platform.OS == "ios" ? "padding" : "height"} style = {[css.container, css.shkbg]}>
-
+    <StatusBar style='light' backgroundColor="#000" translucent ={true} />
     <ContainerH colors={['#83EEBA','#6bd1aa', '#837EBA']}>
         <HeaderH>
         <LogoImg source= {logo} style= {{marginTop: 100}} resizeMode ="contain"></LogoImg>

@@ -1,7 +1,7 @@
+import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, Image, View, Platform, TouchableOpacity } from 'react-native';
 import { Container, Header, Footer, PortifolioForm,LogoImg, TitleLogin, css } from '../assets/css/Css';
-import { AntDesign } from '@expo/vector-icons';
 import logoL from '../assets/img/LogoL.jpg';
 import database from './firebase'
 
@@ -25,6 +25,7 @@ export default function LoginP (props) {
     }
 return(
 <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style = {[css.container, css.shkbg]}>
+    <StatusBar style='light' backgroundColor="#000" translucent ={true} />
     <Container>
         <Header colors={['#83EEBA', '#837EBA']}>
             <LogoImg source= {logoL} resizeMode ="contain" style= {{marginTop: -25}}></LogoImg>

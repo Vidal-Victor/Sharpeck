@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View, KeyboardAvoidingView, ScrollView, TouchableOpacity, Alert } from 'react-native';
+import { StyleSheet, Text, TextInput, View, KeyboardAvoidingView, ScrollView, TouchableOpacity, Alert } from 'react-native';
 import firebase from './firebase'
 import { TextInputMask } from 'react-native-masked-text';
 import {css, ContainerH, PortifolioFormC, HeaderH, Footer, LogoImg, Title} from '../assets/css/Css';
@@ -78,6 +78,7 @@ export default function CadastroPj(props) {
 
 
   <KeyboardAvoidingView  behavior={Platform.OS == "ios" ? "padding" : "height"} style = {[css.container, css.shkbg]}>
+  <StatusBar style='light' backgroundColor="#000" translucent ={true} />
   <ContainerH colors={['#6bd1aa','#837EBA']}>
     <HeaderH>
     <LogoImg source= {logoPJ} resizeMode ="contain" style= {{marginTop: -100}}>
