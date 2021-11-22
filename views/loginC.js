@@ -20,7 +20,7 @@ export default function LoginC ({navigation})  {
          
         firebase.auth().signInWithEmailAndPassword(email, senha)
           .then((userCredential) => {
-            navigation.navigate('Home')
+            navigation.navigate('mainCliente')
             const user = userCredential.user;
             // ...
           })
