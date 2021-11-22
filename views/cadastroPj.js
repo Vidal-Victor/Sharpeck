@@ -16,12 +16,16 @@ export default function CadastroPj(props) {
   const [CNPJ, setCNPJ] = useState('');
   const [NomeFantasia, setNomeFantasia] = useState('');
   const [RazaoSocial, setRazaoSocial] = useState('');
+  const [Endereco, setEndereco] = useState('');
+  const [Numero, setNumero] = useState('');
   const [Sigla, setSigla] = useState('');
   const [Email, setEmail] = useState('');
   const [Senha, setSenha] = useState('');
   
  function Limpar(){
     setCNPJ('');
+    setEndereco('');
+    setNumero('');
     setNomeFantasia('');
     setRazaoSocial('');
     setSigla('');
@@ -32,12 +36,14 @@ export default function CadastroPj(props) {
 
   async function addComerciante(){
     await database.collection('Comerciante').add({
-      NomeFantasia: NomeFantasia,
-      Sigla: Sigla,
-      CNPJ: CNPJ,
-      RazaoSocial: RazaoSocial,
-      Email: Email,
-      Senha: Senha,
+      NomeFantasia,
+      Sigla,
+      CNPJ,
+      Numero,
+      Endereco,
+      RazaoSocial,
+      Email,
+      Senha,
     }).then(() => {
       Limpar()
     })
@@ -93,6 +99,8 @@ export default function CadastroPj(props) {
         <TextInput style={styles.input} placeholder="NomeFantasia" value = {NomeFantasia} onChangeText={NomeFantasia=> setNomeFantasia(NomeFantasia)} />
         <TextInput style={styles.input} placeholder="Sigla" value = {Sigla} onChangeText={Sigla => setSigla(Sigla)}/>
         <TextInputMask style={styles.input} type={'cnpj'} placeholder="CNPJ" value = {CNPJ} onChangeText={CNPJ => setCNPJ(CNPJ)}/>
+        <TextInput style={styles.input} placeholder="Endereco" value = {Endereco} onChangeText={Endereco => setEndereco(Endereco)}/>
+        <TextInput style={styles.input}  placeholder="Numero Residencial" keyboardType="numeric" value = {Numero} onChangeText={Numero => setNumero(Numero)}/>
         <TextInput style={styles.input} placeholder="Razão Social" value = {RazaoSocial} onChangeText={RazaoSocial => setRazaoSocial(RazaoSocial)} />
         <TextInput style={styles.input} placeholder="Email" value = {Email} onChangeText={Email => setEmail(Email)}/>
         <TextInput style={styles.input} placeholder="Senha" value = {Senha}  onChangeText={Senha => setSenha(Senha)} secureTextEntry = {true} />
