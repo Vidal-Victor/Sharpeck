@@ -6,5 +6,6 @@ import Registro from './register';
 import CadastroPj from './cadastroPj';
 import CadastroC from './cadastroC';
 import mainCliente from './mainCliente'
+import Detail from './components/detail'
 
-export {Home, LoginC, LoginP, Logar, Registro, CadastroPj, CadastroC, mainCliente} 
+export {Home, LoginC, LoginP, Logar, Registro, CadastroPj, CadastroC, mainCliente, Detail} 

@@ -11,6 +11,7 @@ import  Registro from './views/register';
 import CadastroPj from './views/cadastroPj'
 import CadastroC from './views/cadastroC'
 import mainCliente from './views/mainCliente'
+import Detail from './views/components/detail'
 import {css} from './assets/css/Css';
 
 <View style={css.container}></View>
@@ -24,14 +25,15 @@ export default function App() {
   return (
   <NavigationContainer>
     <Stack.Navigator initialRouteName = "Home">
-      <Stack.Screen name = "Home" component = {Home} options={{ headerShown: false, }}/>
-      <Stack.Screen name = "LoginC" component = {LoginC} options = {{ headerShown: false, }}/>
-      <Stack.Screen name = "LoginP" component = {LoginP} options = {{ headerShown: false, }}/>
-      <Stack.Screen name = "Logar" component = {Logar} options = {{  headerShown: false,}}/>
-      <Stack.Screen name = "Registro"component = {Registro} options = {{ headerShown: false,}}/>
-      <Stack.Screen name = "CadastroPj" component = {CadastroPj} options = {{ headerShown: false,}}/>
-      <Stack.Screen name = "CadastroC" component = {CadastroC} options = {{ headerShown: false,}}/>
-      <Stack.Screen name = "mainCliente" component = {mainCliente} options = {{ headerShown: false,}}/>
+      <Stack.Screen name = "Home" component = {Home} options={{ headerShown: false}}/>
+      <Stack.Screen name = "LoginC" component = {LoginC} options = {{ headerShown: false}}/>
+      <Stack.Screen name = "LoginP" component = {LoginP} options = {{ headerShown: false }}/>
+      <Stack.Screen name = "Logar" component = {Logar} options = {{  headerShown: false}}/>
+      <Stack.Screen name = "Registro"component = {Registro} options = {{ headerShown: false}}/>
+      <Stack.Screen name = "CadastroPj" component = {CadastroPj} options = {{ headerShown: false}}/>
+      <Stack.Screen name = "CadastroC" component = {CadastroC} options = {{ headerShown: false}}/>
+      <Stack.Screen name = "mainCliente" component = {mainCliente} options = {{ headerShown: false}}/>
+      <Stack.Screen name = "Detail" component = {Detail}/>
     </Stack.Navigator>
   </NavigationContainer>
   );

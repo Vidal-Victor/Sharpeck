@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
 export default function Produto(props) {
  return (
-   <TouchableOpacity style={styles.container} onPress={props}>
+   <TouchableOpacity style={styles.container} onPress={props.onClick}>
        <Image
         source={props.img}
         style ={styles.produtoImg}
