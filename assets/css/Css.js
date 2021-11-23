@@ -141,3 +141,29 @@ flex-direction: column;
 justify-content: flex-start;
 align-items: center;
 `;
+
+export const ContainerM = styled.View`
+  width: 100%;
+  background-color: #ececec;
+  flex: 1; 
+  `;
+
+export const Banner = styled.Image`
+margin-top: 12px;
+height: 30%;
+width: 100%;
+border-radius:10px;
+`;
+
+export const PortifolioFormCm = styled(LinearGradient)`
+borderRadius:10px;
+border-color:#fff;
+height:-130px;
+width: 100%;
+align-items: center;
+`;
+
+export const ProdutoImg = styled.Image`
+height: 30%;
+width: 100%;
+`;
