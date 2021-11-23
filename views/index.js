@@ -5,6 +5,8 @@ import Logar from'./logar';
 import Registro from './register';
 import CadastroPj from './cadastroPj';
 import CadastroC from './cadastroC';
-import mainCliente from './mainCliente'
+import mainCliente from './mainCliente';
+import Produtos from './mainParceiro';
+import ProdutosC from './listaP';
 
-export {Home, LoginC, LoginP, Logar, Registro, CadastroPj, CadastroC, mainCliente} 
+export {Home, LoginC, LoginP, Logar, Registro, CadastroPj, CadastroC, mainCliente, Produtos, ProdutosC} 

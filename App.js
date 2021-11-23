@@ -3,14 +3,16 @@ import React from 'react';
 import { View } from 'react-native';
 import { NavigationContainer, StackRouter } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Home from './views/home'
-import Logar from './views/logar'
-import LoginP from './views/loginP'
+import Home from './views/home';
+import Logar from './views/logar';
+import LoginP from './views/loginP';
 import LoginC from './views/loginC';
 import  Registro from './views/register';
-import CadastroPj from './views/cadastroPj'
-import CadastroC from './views/cadastroC'
-import mainCliente from './views/mainCliente'
+import CadastroPj from './views/cadastroPj';
+import CadastroC from './views/cadastroC';
+import mainCliente from './views/mainCliente';
+import Produtos from './views/mainParceiro';
+import ProdutosC from './views/listaP';
 import {css} from './assets/css/Css';
 
 <View style={css.container}></View>
@@ -32,6 +34,8 @@ export default function App() {
       <Stack.Screen name = "CadastroPj" component = {CadastroPj} options = {{ headerShown: false,}}/>
       <Stack.Screen name = "CadastroC" component = {CadastroC} options = {{ headerShown: false,}}/>
       <Stack.Screen name = "mainCliente" component = {mainCliente} options = {{ headerShown: false,}}/>
+      <Stack.Screen name = "Produtos" component = {Produtos} options = {{ headerShown: false,}}/>
+      <Stack.Screen name = "ProdutosC" component = {ProdutosC} options = {{ headerShown: false,}}/>
     </Stack.Navigator>
   </NavigationContainer>
   );
