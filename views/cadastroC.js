@@ -17,6 +17,7 @@ export default function CadastroC(props) {
   const [Sobrenome, setSobrenome] = useState('');
   const [CPF, setCPF] = useState('');
   const [Endereco, setEndereco] = useState('');
+  const [Numero, setNumero] = useState('');
   const [Telefone, setTelefone] = useState('');
   const [Email, setEmail] = useState('');
   const [Senha, setSenha] = useState('');
@@ -113,7 +114,7 @@ export default function CadastroC(props) {
       <TextInputMask style={styles.input} type={'cpf'} 
       placeholder="CPF" value = {CPF} keyboardType="numeric" onChangeText={ CPF => setCPF (CPF)}/> 
       <TextInput style={styles.input} placeholder="Endereco" value = {Endereco} onChangeText={Endereco => setEndereco(Endereco)}/>
-      <TextInput style={styles.input} placeholder="Numero Residencial" value = {Numero} onChangeText={Numero => setEndereco(Numero)}/>
+      <TextInput style={styles.input} keyboardType="numeric" placeholder="Numero Residencial" value = {Numero} onChangeText={Numero => setNumero(Numero)}/>
       <TextInputMask style={styles.input} type={'cel-phone'}
       options={{maskType:'BRL', withDDD: true, DDDmask: '(00) ' }} placeholder="Telefone" value = {Telefone} onChangeText={Telefone => setTelefone(Telefone)}/>
       <TextInput style={styles.input} placeholder="Email" value = {Email} onChangeText={Email => setEmail(Email)}/>
