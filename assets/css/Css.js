@@ -163,7 +163,3 @@ width: 100%;
 align-items: center;
 `;
 
-export const ProdutoImg = styled.Image`
-height: 30%;
-width: 100%;
-`;
