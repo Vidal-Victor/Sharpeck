@@ -48,8 +48,7 @@ return(
 
 );
 }
-/*<Button title='faça seu login' color = '#83EEBA' onPress={() => props.navigation.navigate('Login')} />
-        <Button title='Cadastre-se'   color = '#83EEBA' onPress={() => props.navigation.navigate('CadastroPj')} />*/
+
 const styles = StyleSheet.create({
 
 
