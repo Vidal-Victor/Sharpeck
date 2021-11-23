@@ -90,12 +90,11 @@ const styles = StyleSheet.create({
     labelText:{
         marginTop:40,
         marginBottom:-45,
-        marginLeft:10,
-
-        fontSize: 18,
+        fontSize: 15,
         color: "#fff",
         fontWeight: "bold",
         alignSelf: "center",
+        alignItems: "center",
     },
 
  });
