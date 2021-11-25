@@ -1,6 +1,7 @@
+import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { ContainerH, HeaderH, Footer, LogoImg, Title, ContentButton, TextButton, PortifolioFormH, ButtonH, css } from '../assets/css/Css';
-import { StyleSheet,KeyboardAvoidingView, Text, View,Button, SafeAreaView } from 'react-native';
+import { ContainerH, HeaderH, Footer, LogoImg, Title, css } from '../assets/css/Css';
+import { StyleSheet,KeyboardAvoidingView, Text, View } from 'react-native';
 import logo from '../assets/img/LogoH.png';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
@@ -10,7 +11,7 @@ export default function Home (props)
 return(
 
 <KeyboardAvoidingView  behavior={Platform.OS == "ios" ? "padding" : "height"} style = {[css.container, css.shkbg]}>
-
+    <StatusBar style='light' backgroundColor="#000" translucent ={true} />
     <ContainerH colors={['#83EEBA','#6bd1aa', '#837EBA']}>
         <HeaderH>
         <LogoImg source= {logo} style= {{marginTop: 100}} resizeMode ="contain"></LogoImg>
@@ -47,8 +48,7 @@ return(
 
 );
 }
-/*<Button title='faça seu login' color = '#83EEBA' onPress={() => props.navigation.navigate('Login')} />
-        <Button title='Cadastre-se'   color = '#83EEBA' onPress={() => props.navigation.navigate('CadastroPj')} />*/
+
 const styles = StyleSheet.create({
 
 
@@ -89,12 +89,11 @@ const styles = StyleSheet.create({
     labelText:{
         marginTop:40,
         marginBottom:-45,
-        marginLeft:10,
-
-        fontSize: 18,
+        fontSize: 15,
         color: "#fff",
         fontWeight: "bold",
         alignSelf: "center",
+        alignItems: "center",
     },
 
  });

@@ -1,11 +1,11 @@
+import { StatusBar } from 'expo-status-bar';
 import React, {useState, useEffect} from 'react';
-import { KeyboardAvoidingView, StyleSheet, Text, TextInput, Image, View, Platform, TouchableOpacity } from 'react-native';
+import { KeyboardAvoidingView, StyleSheet, Text, TextInput, View, Platform, TouchableOpacity } from 'react-native';
 import { Container, Header, Footer, PortifolioForm,LogoImg, TitleLogin, css } from '../assets/css/Css';
-import { AntDesign } from '@expo/vector-icons';
 import logoL from '../assets/img/LogoL.jpg';
 import firebase from "./firebase"
 import "firebase/auth";
-import app from "./firebase"
+
 
 
 export default function LoginC ({navigation})  {
@@ -20,7 +20,7 @@ export default function LoginC ({navigation})  {
          
         firebase.auth().signInWithEmailAndPassword(email, senha)
           .then((userCredential) => {
-            navigation.navigate('Home')
+            navigation.navigate('mainCliente')
             const user = userCredential.user;
             // ...
           })
@@ -31,6 +31,7 @@ export default function LoginC ({navigation})  {
     }
 return(
 <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"} style = {[css.container, css.shkbg]}>
+<StatusBar style='light' backgroundColor="#000" translucent ={true} />
     <Container>
         <Header colors={['#83EEBA', '#837EBA']}>
             <LogoImg source= {logoL} resizeMode ="contain" style= {{marginTop: -25}}></LogoImg>

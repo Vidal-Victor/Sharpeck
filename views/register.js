@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React, {useEffect, useState } from 'react';
-import { Button, StyleSheet, Text, View, KeyboardAvoidingView} from 'react-native';
+import { StyleSheet, Text, View, KeyboardAvoidingView} from 'react-native';
 import {css, ContainerH, Title, PortifolioForm, Footer, HeaderH, LogoImgR} from '../assets/css/Css';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import user from '../assets/img/UserIconC.jpg';
@@ -11,6 +11,7 @@ export default function Registro(props) {
   console.log (props);
   return ( 
     <KeyboardAvoidingView  behavior={Platform.OS == "ios" ? "padding" : "height"} style = {[css.container, css.shkbg]}>
+    <StatusBar style='light' backgroundColor="#000" translucent ={true} />
     <ContainerH colors={['#837EBA','#6bd1aa']}>
       <HeaderH>
 

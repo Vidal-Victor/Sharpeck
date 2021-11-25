@@ -3,7 +3,16 @@ import React from 'react';
 import { View } from 'react-native';
 import { NavigationContainer, StackRouter } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Registro, Home, LoginC, Logar, LoginP, CadastroC, CadastroPj, MainCliente } from './views';
+import Home from './views/home';
+import Logar from './views/logar';
+import LoginP from './views/loginP';
+import LoginC from './views/loginC';
+import  Registro from './views/register';
+import CadastroPj from './views/cadastroPj';
+import CadastroC from './views/cadastroC';
+import mainCliente from './views/mainCliente';
+import Produtos from './views/mainParceiro';
+import ProdutosC from './views/listaP';
 import {css} from './assets/css/Css';
 
 <View style={css.container}></View>
@@ -17,62 +26,16 @@ export default function App() {
   return (
   <NavigationContainer>
     <Stack.Navigator initialRouteName = "Home">
-      <Stack.Screen 
-        name = "Home" 
-        component = {Home}
-        options={{
-        headerShown: false,
-        }}
-      />
-      <Stack.Screen
-       name = "LoginC" 
-       component = {LoginC}
-       options = {{
-         headerShown: false,
-       }}
-       />
-       <Stack.Screen
-       name = "LoginP" 
-       component = {LoginP}
-       options = {{
-         headerShown: false,
-       }}
-       />
-        <Stack.Screen
-       name = "Logar" 
-       component = {Logar}
-       options = {{
-         headerShown: false,
-       }}
-       />
-        <Stack.Screen
-        name = "Registro"
-        component = {Registro}
-        options = {{
-          headerShown: false,
-        }}
-       />
-        <Stack.Screen
-        name = "CadastroPj"
-        component = {CadastroPj}
-        options = {{
-          headerShown: false,
-        }}
-       />
-        <Stack.Screen
-        name = "CadastroC"
-        component = {CadastroC}
-        options = {{
-          headerShown: false,
-        }}
-       />
-          <Stack.Screen
-        name = "MainCliente"
-        component = {MainCliente}
-        options = {{
-          headerShown: false,
-        }}
-       />
+      <Stack.Screen name = "Home" component = {Home} options={{ headerShown: false, }}/>
+      <Stack.Screen name = "LoginC" component = {LoginC} options = {{ headerShown: false, }}/>
+      <Stack.Screen name = "LoginP" component = {LoginP} options = {{ headerShown: false, }}/>
+      <Stack.Screen name = "Logar" component = {Logar} options = {{  headerShown: false,}}/>
+      <Stack.Screen name = "Registro"component = {Registro} options = {{ headerShown: false,}}/>
+      <Stack.Screen name = "CadastroPj" component = {CadastroPj} options = {{ headerShown: false,}}/>
+      <Stack.Screen name = "CadastroC" component = {CadastroC} options = {{ headerShown: false,}}/>
+      <Stack.Screen name = "mainCliente" component = {mainCliente} options = {{ headerShown: false,}}/>
+      <Stack.Screen name = "Produtos" component = {Produtos} options = {{ headerShown: false,}}/>
+      <Stack.Screen name = "ProdutosC" component = {ProdutosC} options = {{ headerShown: false,}}/>
     </Stack.Navigator>
   </NavigationContainer>
   );
